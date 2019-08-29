@@ -132,10 +132,7 @@ class GltfImporter : public ozz::animation::offline::OzzImporter {
     // first find the skeleton roots for each skin
     set<int> rootJoints;
     for (auto& skin : skins) {
-      int rootJointIndex = FindSkinRootJointIndex(skin);
-      if (rootJointIndex == -1) continue;
-
-      rootJoints.insert(rootJointIndex);
+      FindSkinRootJointIndexes(skin, rootJoints);
     }
 
     // traverse the scene graph and record all joints starting from the roots
@@ -210,9 +207,10 @@ class GltfImporter : public ozz::animation::offline::OzzImporter {
 
   // given a skin find which of its joints is the skeleton root and return it
   // returns -1 if the skin has no associated joints
-  int FindSkinRootJointIndex(const tinygltf::Skin& skin) {
+  void FindSkinRootJointIndexes(const tinygltf::Skin& skin, set<int>& rootJoints) {
     if (skin.joints.empty()) {
-      return -1;
+      // return -1;
+      assert(false && "empty joints for skin");
     }
 
     unordered_map<int, int> parents;
@@ -222,12 +220,14 @@ class GltfImporter : public ozz::animation::offline::OzzImporter {
       }
     }
 
-    int rootBoneIndex = skin.joints[0];
-    while (parents.find(rootBoneIndex) != parents.end()) {
-      rootBoneIndex = parents[rootBoneIndex];
+    for (int nodeIndex : skin.joints) {
+      if (parents.find(nodeIndex) == parents.end()) {
+        // then no parent, so is a root joint
+        rootJoints.insert(nodeIndex);
+      }
     }
 
-    return rootBoneIndex;
+    return;
   }
 
   // recursively import a node's children
