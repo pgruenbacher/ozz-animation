@@ -1,4 +1,4 @@
-add_library(ozz_animation_offline STATIC
+add_library(ozz_animation_offline
   ${PROJECT_SOURCE_DIR}/include/ozz/animation/offline/raw_animation.h
   raw_animation.cc
   raw_animation_archive.cc

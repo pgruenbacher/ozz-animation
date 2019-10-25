@@ -1,4 +1,4 @@
-add_library(ozz_base STATIC
+add_library(ozz_base
   ${PROJECT_SOURCE_DIR}/include/ozz/base/endianness.h
   ${PROJECT_SOURCE_DIR}/include/ozz/base/gtest_helper.h
   ${PROJECT_SOURCE_DIR}/include/ozz/base/memory/allocator.h
