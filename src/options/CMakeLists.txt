@@ -1,4 +1,4 @@
-add_library(ozz_options STATIC
+add_library(ozz_options
   ../../include/ozz/options/options.h
   options.cc)
 target_include_directories(ozz_options PUBLIC

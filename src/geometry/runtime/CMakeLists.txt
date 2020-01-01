@@ -1,4 +1,4 @@
-add_library(ozz_geometry STATIC
+add_library(ozz_geometry
   ${PROJECT_SOURCE_DIR}/include/ozz/geometry/runtime/skinning_job.h
   skinning_job.cc)
 target_link_libraries(ozz_geometry
