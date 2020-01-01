@@ -86,7 +86,7 @@ foreach(line ${build_configurations})
   set(options "")
   set(depends "")
   set(config_file "")
-    
+
   # Loops over all elements to find parameters.
   foreach(element ${line})
     if (${element} MATCHES "output:(.*)")

@@ -71,7 +71,7 @@ if(UNIX AND APPLE)
     lib/cocoa/platform.h)
 endif()
 
-add_library(glfw STATIC
+add_library(glfw
   include/GL/glfw.h
   include/GL/glext.h
   lib/enable.c

@@ -45,5 +45,4 @@ if(NOT EMSCRIPTEN)
 
   set_target_properties(dump2ozz
     PROPERTIES FOLDER "ozz/tools")
-    
 endif()

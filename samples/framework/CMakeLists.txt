@@ -1,5 +1,5 @@
 # Framework library
-add_library(sample_framework STATIC
+add_library(sample_framework
   application.h
   application.cc
   imgui.h
