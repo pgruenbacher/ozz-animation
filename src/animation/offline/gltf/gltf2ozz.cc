@@ -365,7 +365,9 @@ class GltfImporter : public ozz::animation::offline::OzzImporter {
                      << std::endl;
 
     // if duration of zero, then it's a pose.
-    if (animation->duration == 0.f) animation->duration = 1.f;
+    // pick a small value that is unlikely to occur for
+    // actual animations with multiple frames
+    if (animation->duration == 0.f) animation->duration = 0.099f;
     if (!animation->Validate()) {
       ozz::log::Err() << "Animation '" << animation->name
                       << "' failed validation." << std::endl;
