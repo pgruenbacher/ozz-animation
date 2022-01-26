@@ -60,13 +60,13 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   add_compile_options(/WX)
 
   # Select whether to use the DLL version or the static library version of the Visual C++ runtime library.
-  foreach(flag ${cxx_all_flags})
-    if (ozz_build_msvc_rt_dll)
-      string(REGEX REPLACE "/MT" "/MD" ${flag} "${${flag}}")
-    else()
-      string(REGEX REPLACE "/MD" "/MT" ${flag} "${${flag}}")
-    endif()
-  endforeach()
+  # foreach(flag ${cxx_all_flags})
+  #   if (ozz_build_msvc_rt_dll)
+  #     string(REGEX REPLACE "/MT" "/MD" ${flag} "${${flag}}")
+  #   else()
+  #     string(REGEX REPLACE "/MD" "/MT" ${flag} "${${flag}}")
+  #   endif()
+  # endforeach()
 
 #--------------------------------------
 # else consider the compiler as GCC compatible (inc clang)
