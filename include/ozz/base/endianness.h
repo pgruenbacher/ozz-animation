@@ -96,6 +96,7 @@ struct EndianSwapper<_Ty, 2> {
   }
 };
 
+#pragma GCC diagnostic ignored "-Wstringop-overflow="
 // EndianSwapper specialization for 4 bytes types.
 template <typename _Ty>
 struct EndianSwapper<_Ty, 4> {
@@ -135,7 +136,7 @@ struct EndianSwapper<_Ty, 8> {
     return _ty;
   }
 };
-
+#pragma GCC diagnostic pop
 // OZZ_BYTE_SWAP is not useful anymore.
 #undef OZZ_BYTE_SWAP
 
