@@ -319,8 +319,8 @@ class Value {
  protected:
   int type_;
 
-  int int_value_;
-  double number_value_;
+  int int_value_{0};
+  double number_value_{0};
   std::string string_value_;
   std::vector<unsigned char> binary_value_;
   Array array_value_;
